@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Data & AI – Organigram (Dark) + Responsibilities & Project Rationale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card: #111827;
+      --border: #1f2937;
+      --primary: #3b82f6;
+      --accent: #10b981;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --line: rgba(148,163,184,0.35);
+      --box: #0f172a;
+    }
+    * { box-sizing: border-box; font-family: "Segoe UI", Roboto, system-ui, sans-serif; }
+    body { margin: 0; padding: 32px; background: var(--bg); color: var(--text); }
+    h1 { text-align: center; font-size: 1.8rem; font-weight: 700; color: var(--primary); margin-bottom: 30px; }
+    .org-container { max-width: 1400px; margin: 0 auto; }
+
+    /* Header card */
+    .cdo-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 25px; box-shadow: 0 0 20px rgba(59,130,246,0.15); }
+    .cdo-title { font-size: 1.2rem; font-weight: 700; color: var(--accent); }
+    .cdo-sub { font-size: 0.9rem; color: var(--muted); }
+
+    /* Pillars grid */
+    .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .pillar { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; box-shadow: 0 0 10px rgba(0,0,0,0.25); }
+    .pillar-title { font-weight: 700; font-size: 1rem; color: var(--primary); margin-bottom: 8px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    .hier-block { margin-top: 10px; }
+    .role-lead { background: #1f2937; border: 1px solid #334155; border-radius: 10px; padding: 7px 10px; font-size: 0.8rem; font-weight: 600; position: relative; }
+    .role-lead::after { content: ""; position: absolute; left: 16px; bottom: -10px; width: 2px; height: 10px; background: var(--line); }
+    .sub-roles { margin-left: 22px; border-left: 2px solid var(--line); padding-left: 12px; margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .role { background: #0f172a; border: 1px solid #1f2937; border-radius: 8px; padding: 6px 10px; font-size: 0.78rem; }
+    .role.senior { border-left: 4px solid #f59e0b; }
+    .role.base { border-left: 4px solid #6b7280; }
+
+    /* Section titles */
+    .section-title { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin: 28px 0 12px; }
+
+    /* Responsibilities cards */
+    .resp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+    .resp-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+    .resp-title { font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+    .resp-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
+    .resp-list { margin: 0; padding-left: 18px; font-size: 0.86rem; line-height: 1.35; color: var(--text); }
+    .resp-list li { margin-bottom: 6px; }
+    .micro { font-size: 0.76rem; color: var(--muted); }
+
+    /* New page for projects (print) */
+    .page-break { margin-top: 40px; border-top: 1px dashed rgba(255,255,255,0.12); padding-top: 32px; }
+    @media print { .page-break { page-break-before: always; } body { background: #ffffff; } }
+
+    /* Projects */
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-top: 16px; }
+    .project-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 14px 12px; }
+    .project-title { font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+    .badge { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.35); padding: 1px 8px; border-radius: 9999px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .project-body { font-size: 0.86rem; color: var(--text); line-height: 1.4; }
+    .arrow { font-size: 0.8rem; color: var(--muted); margin: 6px 0 6px; }
+    .rationale { margin-top: 8px; padding-left: 18px; }
+    .rationale li { margin-bottom: 6px; color: var(--muted); font-size: 0.84rem; }
+    .highlight { color: var(--accent); font-weight: 700; }
+
+    /* Collapsible details (for optional digest) */
+    details { margin-top: 8px; }
+    summary { cursor: pointer; color: var(--muted); font-size: 0.85rem; }
+    summary:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="org-container">
+    <h1>Data &amp; AI – Organizational Structure</h1>
+
+    <div class="cdo-box">
+      <div class="cdo-title">Head / Chief of Data &amp; AI</div>
+      <div class="cdo-sub">Owns strategy, architecture, governance &amp; AI delivery</div>
+    </div>
+
+    <!-- Organigram -->
+    <div class="pillars">
+
+      <!-- Data Architecture -->
+      <div class="pillar">
+        <div class="pillar-title">Data Architecture</div>
+        <div class="hier-block">
+          <div class="role-lead">Lead Data Solutions Architect</div>
+          <div class="sub-roles">
+            <div class="role senior">Senior Data Solutions Architect</div>
+            <div class="role base">Data Solutions Architect</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Management -->
+      <div class="pillar">
+        <div class="pillar-title">Data Management</div>
+        <div class="hier-block">
+          <div class="role-lead">Lead Data Engineer</div>
+          <div class="sub-roles">
+            <div class="role senior">Senior Data Engineer</div>
+            <div class="role base">Data Engineer</div>
+          </div>
+        </div>
+        <div class="hier-block">
+          <div class="role-lead">Lead BI Engineer</div>
+          <div class="sub-roles">
+            <div class="role senior">Senior BI Engineer</div>
+            <div class="role base">BI Engineer</div>
+          </div>
+        </div>
+        <div class="hier-block">
+          <div class="role-lead">Lead Data Visualization Specialist</div>
+          <div class="sub-roles">
+            <div class="role senior">Senior Data Visualization Specialist</div>
+            <div class="role base">Data Visualization Specialist</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI -->
+      <div class="pillar">
+        <div class="pillar-title">AI</div>
+        <div class="hier-block">
+          <div class="role-lead">Lead ML Engineer / Data Scientist</div>
+          <div class="sub-roles">
+            <div class="role senior">Senior ML Engineer / Data Scientist</div>
+            <div class="role base">ML Engineer / Data Scientist</div>
+          </div>
+        </div>
+        <div class="hier-block">
+          <div class="role-lead">Lead MLOps Engineer</div>
+          <div class="sub-roles">
+            <div class="role senior">Senior MLOps Engineer</div>
+            <div class="role base">MLOps Engineer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Governance -->
+      <div class="pillar">
+        <div class="pillar-title">Data Governance</div>
+        <div class="hier-block">
+          <div class="role-lead">Governance Lead</div>
+          <div class="sub-roles">
+            <div class="role base">Compliance &amp; Privacy Analyst</div>
+            <div class="role senior">MDM Architect</div>
+            <div class="role base">MDM Analyst</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Functional Areas – verbose responsibilities -->
+    <div class="section-title">Functional Areas — Responsibilities & Interfaces</div>
+    <div class="resp-grid">
+      <div class="resp-card">
+        <div class="resp-title">Data Architecture</div>
+        <div class="resp-sub">Blueprints the platform and data models to enable scale, resiliency, and reuse.</div>
+        <ul class="resp-list">
+          <li>Owns target architectures (Lakehouse/Medallion), integration patterns, and data contracts.</li>
+          <li>Chairs the Architecture Review for projects and approves cross-domain designs.</li>
+          <li>Defines canonical models, reference/master entity relationships, and interoperability rules.</li>
+          <li>Sets standards for security, cost, SLAs, and observability across pillars.</li>
+        </ul>
+        <div class="micro">Interfaces with: Data Eng (pipelines), BI (semantic models), AI (features), Governance (policies/MDM).</div>
+      </div>
+
+      <div class="resp-card">
+        <div class="resp-title">Data Management</div>
+        <div class="resp-sub">Builds reliable pipelines and consumable analytics layers.</div>
+        <ul class="resp-list">
+          <li><strong>Data Engineering:</strong> ingestion, ELT/ETL, orchestration, CI/CD pipeline automation, quality gates, performance & cost optimization.</li>
+          <li><strong>BI Engineering:</strong> curated marts, semantic models, KPI frameworks, enterprise datasets.</li>
+          <li><strong>Data Visualization:</strong> UX, storytelling, dashboard standards, accessibility, and adoption.</li>
+        </ul>
+        <div class="micro">Interfaces with: Architecture (patterns/contracts), AI (features/serving data), Business stakeholders (consumption).</div>
+      </div>
+
+      <div class="resp-card">
+        <div class="resp-title">AI</div>
+        <div class="resp-sub">Delivers ML/AI solutions and keeps models healthy in production.</div>
+        <ul class="resp-list">
+          <li><strong>ML Eng & Data Science:</strong> problem framing, experimentation, model training, evaluation and responsible AI checks.</li>
+          <li><strong>MLOps:</strong> model deployment, CI/CD for ML, monitoring (drift, bias, performance), rollback and governance.</li>
+          <li>Partners with Data Eng for feature pipelines and with BI for human-in-the-loop decisioning.</li>
+        </ul>
+        <div class="micro">Interfaces with: Architecture (platform/standards), Data Management (features/data), Governance (policy & AI compliance).</div>
+      </div>
+
+      <div class="resp-card">
+        <div class="resp-title">Data Governance</div>
+        <div class="resp-sub">Makes data trustworthy and compliant while enabling access.</div>
+        <ul class="resp-list">
+          <li>Owns policies, access control models, DPIA/PIA processes, and regulatory alignment (e.g., GDPR, AI Act).</li>
+          <li>Drives data ownership, stewardship operating model, and issue remediation workflows.</li>
+          <li>Owns MDM: golden records, match/merge rules, reference data authoring and lifecycle.</li>
+          <li>Publishes glossary, rules of engagement, and certification criteria for data products.</li>
+        </ul>
+        <div class="micro">Interfaces with: All pillars to embed compliance and quality-by-design.</div>
+      </div>
+    </div>
+
+    <!-- New page: Project distribution with detailed rationale -->
+    <div class="page-break">
+      <div class="section-title">Project Distribution Model — Rationale & Decision Rules</div>
+      <p class="micro" style="margin-bottom:10px;">
+        Tech Lead assignment is based on scope, cross-domain impact, architectural novelty, and risk. Use the rules below to ensure safety and speed.
+      </p>
+
+      <div class="project-grid">
+
+        <!-- Large / Multidisciplinary -->
+        <div class="project-box">
+          <div class="project-title">
+            Large / Multidisciplinary Project <span class="badge">High Impact</span>
+          </div>
+          <div class="project-body">
+            <span class="highlight">Tech Lead → Data Architecture (Lead/Senior Data Solutions Architect)</span>
+          </div>
+          <div class="arrow">Why this assignment?</div>
+          <ul class="rationale">
+            <li>Cross-pillar coupling (Data, BI, AI, Governance) requires end-to-end architectural oversight.</li>
+            <li>Introduces or modifies reusable assets (data models, contracts, platform capabilities) that affect multiple teams.</li>
+            <li>Non-functional requirements (SLA, scale, security, cost) must be balanced across domains.</li>
+            <li>Minimizes rework by enforcing standards and patterns upfront.</li>
+          </ul>
+          
+          
+        </div>
+
+        <!-- Medium / Single Discipline -->
+        <div class="project-box">
+          <div class="project-title">
+            Medium Project – Single Discipline <span class="badge">Scoped</span>
+          </div>
+          <div class="project-body">
+            <span class="highlight">Tech Lead → Corresponding Lead role</span> (Lead Data Engineer, Lead BI Engineer, Lead MLOps Engineer, Lead ML Engineer).
+          </div>
+          <div class="arrow">Why this assignment?</div>
+          <ul class="rationale">
+            <li>Work is contained within one pillar; dependencies are known and limited.</li>
+            <li>Enables faster iteration while still applying pillar standards and checklists.</li>
+            <li>Architecture is not materially changed (uses established patterns).</li>
+          </ul>
+          
+          
+        </div>
+
+        <!-- Small / Niche -->
+        <div class="project-box">
+          <div class="project-title">
+            Small / Niche Project <span class="badge">Operational</span>
+          </div>
+          <div class="project-body">
+            <span class="highlight">Tech Lead → Data Visualization Specialist or BI Engineer</span> (if reporting-only or minor data shaping).
+          </div>
+          <div class="arrow">Why this assignment?</div>
+          <ul class="rationale">
+            <li>Scope is localized to consumption layer; minimal platform or data model impact.</li>
+            <li>Optimizes time-to-value by keeping ownership with the delivery team closest to the user.</li>
+            <li>Complexity/risks can be managed with standard datasets and design system.</li>
+          </ul>
+          
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
